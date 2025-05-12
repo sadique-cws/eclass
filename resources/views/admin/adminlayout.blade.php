@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    
-    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm py-3 px-5">
+
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom navbar-dark shadow-sm py-3 px-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('public.home') }}">{{ env('APP_NAME') }}</a>
+            <a class="navbar-brand" href="{{ route('public.home') }}">Admin Panel | {{ env('APP_NAME') }}</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -25,24 +25,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('public.home') }}">Home</a>
-                    </li>
-                   @guest
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ route("login") }}">Student Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class=" btn btn-primary" href="{{ route("public.apply") }}">Apply for Admission</a>
-                    </li>
-                   @endguest
-
                    @auth
                          <li class="nav-item">
-                        <a class="nav-link" href="{{ route("public.logout") }}">logout</a>
+                        <a class="nav-link" href="{{ route("public.logout") }}">Hi, {{auth()->user()->name}}</a>
+                    </li>
+                         <li class="nav-item">
+                        <a class="nav-link" href="{{ route("public.logout") }}"><i class="bi bi-box-arrow-right"></i>
+ logout</a>
                     </li>
                    @endauth
-
                 </ul>
             </div>
         </div>
