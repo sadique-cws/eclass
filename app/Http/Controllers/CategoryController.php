@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.insertCategory");
     }
 
     /**
@@ -29,23 +29,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            "cat_title" => "required",
+            "cat_description" => "required",
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        //
+        Category::create($data);
+        return redirect()->route("categories.index");
     }
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
     {
-        //
+        return view("admin.editCategory", compact("category"));
     }
 
     /**
@@ -53,7 +50,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+         $data = $request->validate([
+            "cat_title" => "required",
+            "cat_description" => "required",
+        ]);
+
+        $category->update($data);
+        return redirect()->route("categories.index");
     }
 
     /**
@@ -61,6 +64,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back();
     }
 }

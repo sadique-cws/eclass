@@ -8,7 +8,7 @@
                         Manage Categories</a>
                     <a href="{{ route("admin.manageAdmission") }}" class="list-group-item list-group-action"><i class="bi bi-mortarboard"></i>
                         Manage Admission</a>
-                    <a href="" class="list-group-item list-group-action"><i class="bi bi-people"></i> Manage
+                    <a href="{{ route("admin.manageStudent") }}" class="list-group-item list-group-action"><i class="bi bi-people"></i> Manage
                         Students</a>
                     <a href="" class="list-group-item list-group-action"><i class="bi bi-credit-card"></i> Manage
                         Payments</a>

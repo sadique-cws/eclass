@@ -11,7 +11,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2 class="">Manage Categories ({{ count($categories) }})</h2>
 
-                    <a href="" class="btn btn-success">
+                    <a href="{{ route("categories.create") }}" class="btn btn-success">
  Add New Category <i class="bi bi-send"></i></a>
                 </div>
 
@@ -31,10 +31,13 @@
                             <td>{{$cat->cat_title}}</td>
                             <td>{{$cat->cat_description}}</td>
 
-                            <td>
-                                <a href="" class="btn btn-danger"><i class="bi bi-x-circle"></i> Delete
-</a>
-                                <a href="" class="btn btn-success"><i class="bi bi-check2-circle"></i>
+                            <td class="d-flex gap-2">
+                                <form method="post" action="{{ route("categories.destroy", $cat) }}">
+                                    @csrf
+                                    @method("delete")
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-x-circle"></i> Delete</button>
+                                </form>
+                                <a href="{{ route("categories.edit", $cat) }}" class="btn btn-success"><i class="bi bi-check2-circle"></i>
  Edit</a>
                             </td>
                         </tr>

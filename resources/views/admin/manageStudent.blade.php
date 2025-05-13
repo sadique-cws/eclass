@@ -9,10 +9,7 @@
             </div>
             <div class="col-9">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="">Manage Admissions ({{ count($admissions) }})</h2>
-
-                    <a href="" class="btn btn-success">
- Add New Admission <i class="bi bi-send"></i></a>
+                    <h2 class="">Manage Students ({{ count($students) }})</h2>
                 </div>
 
                 <hr>
@@ -27,18 +24,17 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    @foreach ($admissions as $ad)
+                    @foreach ($students as $std)
                         <tr>
-                            <td>{{$ad->id}}</td>
-                            <td>{{$ad->name}}</td>
-                            <td>{{$ad->contact}}</td>
-                            <td>{{$ad->email}}</td>
-                            <td>{{$ad->education}}</td>
+                            <td>{{$std->id}}</td>
+                            <td>{{$std->name}}</td>
+                            <td>{{$std->contact}}</td>
+                            <td>{{$std->email}}</td>
+                            <td>{{$std->education}}</td>
                             <td>
-                                <a href="" class="btn btn-danger"><i class="bi bi-x-circle"></i>
- Cancel</a>
-                                <a href="{{ route("admin.StudentApprove", $ad->id) }}" class="btn btn-success"><i class="bi bi-check2-circle"></i>
- Approve</a>
+                                <a href="" class="btn btn-success"><i class="bi bi-x-circle"></i>View</a>
+                                <a href="" class="btn btn-danger"><i class="bi bi-x-circle"></i>Inactive</a>
+
                             </td>
                         </tr>
                     @endforeach

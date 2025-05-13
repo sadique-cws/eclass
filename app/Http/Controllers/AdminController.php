@@ -15,4 +15,17 @@ class AdminController extends Controller
         $admissions = User::where("status",false)->get();
         return view("admin.manageAdmission", compact("admissions"));
     }
+    public function manageStudent(){
+        $students = User::where("status",true)->get();
+        return view("admin.manageStudent", compact("students"));
+    }
+
+    public function StudentApprove($id){
+        // if($user->status){
+        //     return redirect()->route("admin.manageStudent")->with("msg","this student already approved");
+        // }
+
+        User::find($id)->update(["status" => 1]);
+        return redirect()->route("admin.manageStudent")->with("msg","Student Apporoved Successfully");
+    }
 }
