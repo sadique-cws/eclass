@@ -1,13 +1,56 @@
-<div class="bg-warning py-5 w-100">
-    <div class="container px-4 px-lg-5 d-flex flex-column align-items-start justify-content-center text-dark">
-        <h1 class="display-3 fw-bold mb-3">
-            Welcome to <span class="text-dark">{{ env("APP_NAME") }}</span> Portal
-        </h1>
-        <p class="lead mb-4">
-            Discover the smarter way to learn. Our platform brings expert-led courses, interactive content, and the flexibility you need — all in one place. Start your learning journey today!
-        </p>
-        <a href="{{ route('public.apply') }}" class="btn btn-lg btn-dark shadow-sm px-4 py-2">
-            <i class="bi bi-person-plus-fill me-2"></i> Join Now
-        </a>
+<div class="hero-section position-relative" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); min-height: 85vh;">
+    <div class="container h-100 py-5">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6 py-5">
+                <span class="badge bg-white text-primary px-3 py-2 mb-3 rounded-pill">
+                    <i class="bi bi-stars me-1"></i> Start Learning Today
+                </span>
+                <h1 class="display-3 text-white fw-bold mb-4 lh-base">
+                    Unlock Your Potential With Online Education
+                </h1>
+                <p class="lead text-white-50 mb-4">
+                    Join thousands of students worldwide and learn from top instructors.
+                    Start your journey with {{ env('APP_NAME') }} today.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="/register" class="btn btn-light btn-lg px-4">
+                        <i class="bi bi-person-plus me-2"></i>Join For Free
+                    </a>
+                    <a href="/courses" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-play-circle me-2"></i>Explore Courses
+                    </a>
+                </div>
+                <div class="mt-5 d-flex gap-4">
+                    <div class="text-white">
+                        <h3 class="fw-bold mb-0">10K+</h3>
+                        <p class="mb-0 text-white-50">Students</p>
+                    </div>
+                    <div class="text-white">
+                        <h3 class="fw-bold mb-0">200+</h3>
+                        <p class="mb-0 text-white-50">Courses</p>
+                    </div>
+                    <div class="text-white">
+                        <h3 class="fw-bold mb-0">50+</h3>
+                        <p class="mb-0 text-white-50">Instructors</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block position-relative">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <img src="https://placehold.co/600x400" class="img-fluid rounded-4 shadow-lg" alt="Learning Platform">
+                    <div class="position-absolute top-0 start-0 translate-middle bg-white p-3 rounded-4 shadow-lg">
+                        <i class="bi bi-lightning-charge-fill text-warning fs-4"></i>
+                    </div>
+                    <div class="position-absolute bottom-0 end-0 translate-middle-y bg-white p-3 rounded-4 shadow-lg">
+                        <i class="bi bi-mortarboard-fill text-primary fs-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-absolute bottom-0 w-100">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,165.3C672,149,768,139,864,149.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
     </div>
 </div>

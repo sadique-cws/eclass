@@ -5,46 +5,55 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-3">
-                @include("admin.sidebar")
+<div class="container-fluid dashboard-container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 sidebar-column">
+            @include("admin.sidebar")
+        </div>
+        <div class="col-lg-9 col-md-8 content-column">
+            <div class="dashboard-header">
+                <h2 class="page-title">Edit Category: {{ $category->cat_title }}</h2>
+                <div class="header-actions">
+                    <a href="{{ route('categories.index') }}" class="btn-back">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        <span>Back to Categories</span>
+                    </a>
+                </div>
             </div>
-            <div class="col-9">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="">Edit  {{ $category->cat_title }}'s Category</h2>
 
-                    <a href="{{ route("categories.index") }}" class="btn btn-success"> View all Categories <i class="bi bi-send"></i></a>
-                </div>
-
-                <hr>
-
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route("categories.update", $category) }}" method="POST">
-                            @csrf
-                            @method("put")
-                            <div class="mb-3">
-                                <label for="">Category title</label>
-                                <input type="text" name="cat_title" value="{{ $category->cat_title }}" class="form-control">
-                                @error('cat_title')
-                                    <p class="text-danger small">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="">Categdescription</label>
-                                <textarea rows="5" name="cat_description" class="form-control">{{ $category->cat_description }}</textarea>
-                                @error('cat_description')
-                                    <p class="text-danger small">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit"  class="btn btn-success w-100" value="Edit Category">
-                            </div>
-                        </form>
+            <div class="form-container">
+                <form action="{{ route('categories.update', $category) }}" method="POST" class="custom-form">
+                    @csrf
+                    @method("put")
+                    <div class="form-group">
+                        <label for="cat_title" class="form-label">Category Title</label>
+                        <input type="text" id="cat_title" name="cat_title" value="{{ $category->cat_title }}" class="form-control-custom" placeholder="Enter category title">
+                        @error('cat_title')
+                            <div class="form-error">{{$message}}</div>
+                        @enderror
                     </div>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="cat_description" class="form-label">Category Description</label>
+                        <textarea id="cat_description" rows="5" name="cat_description" class="form-control-custom" placeholder="Enter category description">{{ $category->cat_description }}</textarea>
+                        @error('cat_description')
+                            <div class="form-error">{{$message}}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                            Update Category
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+
+<style>
+/* Form styling - already included in insertCategory.blade.php */
+</style>
 @endsection

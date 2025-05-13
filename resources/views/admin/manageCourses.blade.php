@@ -1,5 +1,9 @@
 @extends('admin.adminlayout')
 
+@section('title')
+    Manage Courses
+@endsection
+
 @section('content')
 <div class="container-fluid dashboard-container">
     <div class="row">
@@ -8,10 +12,10 @@
         </div>
         <div class="col-lg-9 col-md-8 content-column">
             <div class="dashboard-header">
-                <h2 class="page-title">Manage Students</h2>
+                <h2 class="page-title">Manage Courses</h2>
                 <div class="header-actions">
                     <div class="student-count">
-                        <span class="badge bg-primary">{{ count($students) }} Students</span>
+                        <span class="badge bg-primary">{{ count($courses) }} Courses</span>
                     </div>
                     <div class="search-container">
                         <input type="text" id="studentSearch" class="search-input" placeholder="Search students...">
@@ -26,25 +30,24 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Contact</th>
-                            <th>Email</th>
-                            <th>Education</th>
+                            <th>Duration</th>
+                            <th>Instructor</th>
+                            <th>Category</th>
+                            <th>Fee</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $std)
+                        @foreach ($courses as $course)
                             <tr>
-                                <td>{{$std->id}}</td>
-                                <td>
-                                    <div class="student-info">
-                                        <div class="avatar">{{substr($std->name, 0, 1)}}</div>
-                                        <span>{{$std->name}}</span>
-                                    </div>
-                                </td>
-                                <td>{{$std->contact}}</td>
-                                <td>{{$std->email}}</td>
-                                <td>{{$std->education}}</td>
+                                <td>{{$course->id}}</td>
+                                <td><span>{{$course->title}}</span></td>
+                                <td><span>{{$course->duration}}</span></td>
+                                <td><span>{{$course->instructor}}</span></td>
+                                <td><span>{{$course->category}}</span></td>
+                                <td><span>{{$course->discount_price}}<del>{{$course->fee}}</del></span></td>
+                                <td><img src="{{ $course->image }}" alt="{{ $course->title }}" class="course-image"></td>
                                 <td>
                                     <div class="action-buttons">
                                         <a href="" class="btn-view" title="View details">
