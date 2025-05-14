@@ -22,6 +22,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                 </div>
+                {{-- insert course button --}}
+                <div class="header-actions">
+                    <a href="{{ route('course.create') }}" class="btn btn-primary">Add Course</a>
+                </div>
             </div>
 
             <div class="table-container">
@@ -43,11 +47,11 @@
                             <tr>
                                 <td>{{$course->id}}</td>
                                 <td><span>{{$course->title}}</span></td>
-                                <td><span>{{$course->duration}}</span></td>
-                                <td><span>{{$course->instructor}}</span></td>
-                                <td><span>{{$course->category}}</span></td>
+                                <td><span>{{$course->duration == 1 ? '1 Week' : $course->duration . ' Weeks'}}</span></td>
+                                <td><span>{{$course->author}}</span></td>
+                                <td><span>{{$course->category->cat_title}}</span></td>
                                 <td><span>{{$course->discount_price}}<del>{{$course->fee}}</del></span></td>
-                                <td><img src="{{ $course->image }}" alt="{{ $course->title }}" class="course-image"></td>
+                                <td><img src="{{ asset("storage/" . $course->image) }}" alt="{{ $course->title }}" class="course-image" width="100px"></td>
                                 <td>
                                     <div class="action-buttons">
                                         <a href="" class="btn-view" title="View details">
