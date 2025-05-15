@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,7 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class PublicController extends Controller
 {
     public function home(){
-        return view("landing.homepage");
+        $courses = Course::where("status",true)->get();
+        return view("landing.homepage", compact("courses"));
+    }
+
+    public function viewCourse($id){
+        $course = Course::find($id);
+        return view("landing.courseView", compact("course"));
     }
 
     public function apply(Request $req){

@@ -1,11 +1,11 @@
-<div class="hero-section position-relative" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); min-height: 85vh;">
-    <div class="container h-100 py-5">
-        <div class="row align-items-center min-vh-75">
-            <div class="col-lg-6 py-5">
+<div class="hero-section position-relative" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); min-height: 65vh;">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
                 <span class="badge bg-white text-primary px-3 py-2 mb-3 rounded-pill">
                     <i class="bi bi-stars me-1"></i> Start Learning Today
                 </span>
-                <h1 class="display-3 text-white fw-bold mb-4 lh-base">
+                <h1 class="display-4 text-white fw-bold mb-2 lh-base">
                     Unlock Your Potential With Online Education
                 </h1>
                 <p class="lead text-white-50 mb-4">
@@ -48,9 +48,5 @@
             </div>
         </div>
     </div>
-    <div class="position-absolute bottom-0 w-100">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1" d="M0,128L48,144C96,160,192,192,288,197.3C384,203,480,181,576,165.3C672,149,768,139,864,149.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-    </div>
+
 </div>

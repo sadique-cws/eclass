@@ -4,16 +4,21 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RazorpayController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::controller(PublicController::class)->group(function(){
     Route::get("/", "home")->name("public.home");
+    Route::get("/course/{id}", "viewCourse")->name("public.course");
     Route::match(["get","post"],"/apply", "apply")->name("public.apply");
     Route::match(["get","post"],"/student/login", "login")->name("login");
     Route::get("/logout", "Studentlogout")->name("public.logout");
 });
+
+Route::post('payment', [RazorpayController::class, 'payment'])->name('razorpay.payment.store');
+
 
 
 Route::middleware("auth","adminAuth")->group(function(){
